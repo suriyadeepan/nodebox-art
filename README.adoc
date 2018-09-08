@@ -2,5 +2,6 @@
 
 A collection of https://www.nodebox.net/[nodebox] exercises
 
-image::out/spiro5.png[]
-image::out/spiro4.png[]
+image:out/spiro5.png[200, 200]image:out/spiro4.png[200, 200]image:out/spiro7.png[200, 200]
+
+image:out/pattern3.png[200, 200]image:out/pattern5.png[200, 200]image:out/pattern6.png[200, 200]
