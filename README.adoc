@@ -1,3 +1,6 @@
 = NodeBox Exercises
 
 A collection of https://www.nodebox.net/[nodebox] exercises
+
+image::out/spiro5.png[]
+image::out/spiro4.png[]
