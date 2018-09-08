@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="ff3f22f7-da31-473b-b670-fb21de87530a">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="connect1">
+        <node name="combine1" position="8.00,4.00" prototype="list.combine"/>
+        <node name="connect1" position="6.00,8.00" prototype="corevector.connect">
+            <port name="closed" type="boolean" value="false"/>
+        </node>
+        <node name="coordinates1" position="6.00,6.00" prototype="math.coordinates"/>
+        <node name="range1" position="10.00,0.00" prototype="math.range">
+            <port name="start" type="float" value="61.0"/>
+            <port name="end" type="float" value="88.0"/>
+            <port name="step" type="float" value="10.0"/>
+        </node>
+        <node name="reverse1" position="11.00,2.00" prototype="list.reverse"/>
+        <node name="sample1" position="5.00,1.00" prototype="math.sample">
+            <port name="amount" type="int" value="73"/>
+            <port name="end" type="float" value="360.0"/>
+        </node>
+        <conn input="coordinates1.angle" output="sample1"/>
+        <conn input="connect1.points" output="coordinates1"/>
+        <conn input="reverse1.list" output="range1"/>
+        <conn input="coordinates1.distance" output="combine1"/>
+        <conn input="combine1.list1" output="range1"/>
+        <conn input="combine1.list2" output="reverse1"/>
+    </node>
+</ndbx>

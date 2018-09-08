@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="5e40a9da-96ba-41db-83ce-b99272bd17ee">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="network1">
+        <node name="network1" position="6.00,3.00" prototype="core.network"/>
+        <node name="sample1" position="2.00,0.00" prototype="math.sample">
+            <port name="amount" type="int" value="4"/>
+            <port name="start" type="float" value="12.0"/>
+            <port name="end" type="float" value="25.0"/>
+        </node>
+    </node>
+</ndbx>

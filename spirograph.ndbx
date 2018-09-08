@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="b146cdb4-497e-4bfb-8704-83b4f10d5258">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine1">
+        <node name="colorize1" position="4.00,5.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#d4a43ccd"/>
+        </node>
+        <node name="colorize2" position="8.00,5.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#359f29ff"/>
+        </node>
+        <node name="combine1" position="7.00,10.00" prototype="list.combine"/>
+        <node name="copy1" position="4.00,7.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="10"/>
+            <port name="rotate" type="float" value="36.0"/>
+        </node>
+        <node name="copy2" position="8.00,7.00" prototype="corevector.copy">
+            <port name="copies" type="int" value="10"/>
+            <port name="rotate" type="float" value="60.0"/>
+        </node>
+        <node name="freehand1" position="2.00,1.00" prototype="corevector.freehand"/>
+        <node name="freehand2" position="6.00,1.00" prototype="corevector.freehand"/>
+        <node name="reflect1" position="3.00,3.00" prototype="corevector.reflect">
+            <port name="angle" type="float" value="90.0"/>
+        </node>
+        <node name="reflect2" position="7.00,3.00" prototype="corevector.reflect"/>
+        <conn input="reflect1.shape" output="freehand1"/>
+        <conn input="colorize1.shape" output="reflect1"/>
+        <conn input="copy1.shape" output="colorize1"/>
+        <conn input="reflect2.shape" output="freehand2"/>
+        <conn input="colorize2.shape" output="reflect2"/>
+        <conn input="copy2.shape" output="colorize2"/>
+        <conn input="combine1.list2" output="copy2"/>
+        <conn input="combine1.list1" output="copy1"/>
+    </node>
+</ndbx>
