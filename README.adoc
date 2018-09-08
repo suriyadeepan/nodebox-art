@@ -1,3 +1,3 @@
 = NodeBox Exercises
 
-A collection of nodebox exercises
+A collection of nodebox[https://www.nodebox.net/] exercises
