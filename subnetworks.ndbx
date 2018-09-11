@@ -4,8 +4,9 @@
     <property name="canvasWidth" value="1000"/>
     <property name="canvasX" value="0"/>
     <property name="canvasY" value="0"/>
-    <node name="root" prototype="core.network" renderedChild="mod1">
-        <node name="Invader" position="2.00,11.00" prototype="core.network" renderedChild="translate1">
+    <node name="root" prototype="core.network" renderedChild="Invader">
+        <node name="Invader" position="2.00,11.00" prototype="core.network" renderedChild="colorize1">
+            <node name="colorize1" position="8.00,7.00" prototype="corevector.colorize"/>
             <node name="grid1" position="8.00,2.00" prototype="corevector.grid">
                 <port name="columns" type="int" value="6"/>
                 <port name="rows" type="int" value="8"/>
@@ -29,14 +30,16 @@
             </node>
             <port childReference="pick1.seed" description="The random variation." label="" name="seed" range="value" type="int" value="22" widget="int"/>
             <port childReference="translate1.translate" description="The amount of translation." label="" name="position" range="value" type="point" value="112.00,-101.00" widget="point"/>
+            <port childReference="colorize1.fill" description="The new fill color. Set alpha to 0 for no fill." label="" name="fill" range="value" type="color" value="#000000ff" widget="color"/>
             <conn input="pick1.list" output="grid1"/>
             <conn input="rect1.position" output="pick1"/>
             <conn input="reflect1.shape" output="rect1"/>
             <conn input="translate1.shape" output="reflect1"/>
+            <conn input="colorize1.shape" output="translate1"/>
         </node>
         <node name="count1" position="7.00,3.00" prototype="list.count"/>
         <node name="divide1" position="9.00,5.00" prototype="math.divide">
-            <port name="value2" type="float" value="20.0"/>
+            <port name="value2" type="float" value="5.0"/>
         </node>
         <node name="frame1" position="10.00,3.00" prototype="core.frame"/>
         <node name="grid1" position="4.00,1.00" prototype="corevector.grid">
@@ -45,10 +48,17 @@
             <port name="width" type="float" value="600.0"/>
             <port name="height" type="float" value="600.0"/>
         </node>
+        <node name="hsb_color1" position="4.00,7.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="150.0"/>
+            <port name="saturation" type="float" value="255.0"/>
+        </node>
         <node name="mod1" position="8.00,7.00" prototype="math.mod">
-            <port name="value2" type="float" value="100.0"/>
+            <port name="value2" type="float" value="1000.0"/>
         </node>
         <node name="random_numbers1" position="7.00,9.00" prototype="math.random_numbers"/>
+        <node name="random_numbers2" position="5.00,5.00" prototype="math.random_numbers">
+            <port name="end" type="float" value="255.0"/>
+        </node>
         <conn input="Invader.position" output="grid1"/>
         <conn input="count1.list" output="grid1"/>
         <conn input="random_numbers1.amount" output="count1"/>
@@ -56,5 +66,9 @@
         <conn input="divide1.value1" output="frame1"/>
         <conn input="mod1.value1" output="divide1"/>
         <conn input="random_numbers1.seed" output="mod1"/>
+        <conn input="random_numbers2.amount" output="count1"/>
+        <conn input="random_numbers2.seed" output="mod1"/>
+        <conn input="hsb_color1.brightness" output="random_numbers2"/>
+        <conn input="Invader.fill" output="hsb_color1"/>
     </node>
 </ndbx>
