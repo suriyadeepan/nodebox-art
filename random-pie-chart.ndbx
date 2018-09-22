@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="67eb3306-97ec-46f5-8a02-bcad194679ee">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="pie">
+        <node name="convert_range1" position="3.00,4.00" prototype="math.convert_range">
+            <port name="target_end" type="float" value="360.0"/>
+        </node>
+        <node name="num_colors" position="11.00,3.00" prototype="math.number">
+            <port name="value" type="float" value="6.0"/>
+        </node>
+        <node name="number1" position="2.00,1.00" prototype="math.number">
+            <port name="value" type="float" value="11.0"/>
+        </node>
+        <node name="pie" position="5.00,7.00" prototype="core.network" renderedChild="arc1">
+            <node name="arc1" position="4.00,8.00" prototype="corevector.arc"/>
+            <node name="colorize1" position="4.00,9.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#e5b226ff"/>
+            </node>
+            <node name="slice1" position="1.00,4.00" prototype="list.slice"/>
+            <node name="sum1" position="1.00,6.00" prototype="math.sum"/>
+            <port childReference="slice1.list" description="The input list." label="" name="list" range="list" type="list" widget="none"/>
+            <port childReference="arc1.degrees" description="The amount of degrees of the arc." label="" name="degrees" range="value" type="float" value="45.0" widget="float"/>
+            <port childReference="colorize1.fill" description="The new fill color. Set alpha to 0 for no fill." label="" name="fill" range="value" type="color" value="#e5b226ff" widget="color"/>
+            <port childReference="slice1.size" description="The amount of items to take from the list." label="" min="0.0" name="pie_size" range="value" type="int" value="10" widget="int"/>
+            <conn input="sum1.values" output="slice1"/>
+            <conn input="arc1.start_angle" output="sum1"/>
+            <conn input="colorize1.shape" output="arc1"/>
+        </node>
+        <node name="random_percent" position="3.00,3.00" prototype="core.network" renderedChild="multiply1">
+            <node name="divide1" position="2.00,5.00" prototype="math.divide"/>
+            <node name="multiply1" position="3.00,7.00" prototype="math.multiply">
+                <port name="value2" type="float" value="100.0"/>
+            </node>
+            <node name="random_numbers1" position="1.00,2.00" prototype="math.random_numbers">
+                <port name="seed" type="int" value="2"/>
+            </node>
+            <node name="sum1" position="4.00,3.00" prototype="math.sum"/>
+            <port childReference="random_numbers1.amount" description="" label="" min="0.0" name="amount" range="value" type="int" value="10" widget="int"/>
+            <conn input="sum1.values" output="random_numbers1"/>
+            <conn input="divide1.value2" output="sum1"/>
+            <conn input="divide1.value1" output="random_numbers1"/>
+            <conn input="multiply1.value1" output="divide1"/>
+        </node>
+        <node name="range1" position="7.00,3.00" prototype="math.range"/>
+        <node name="seed" position="10.00,2.00" prototype="math.number">
+            <port name="value" type="float" value="20.0"/>
+        </node>
+        <node name="some_colors" position="10.00,5.00" prototype="core.network" renderedChild="hsb_color1">
+            <node name="hsb_color1" position="6.00,3.00" prototype="color.hsb_color">
+                <port name="saturation" type="float" value="200.0"/>
+                <port name="brightness" type="float" value="180.0"/>
+            </node>
+            <node name="random_numbers1" position="6.00,1.00" prototype="math.random_numbers">
+                <port name="end" type="float" value="255.0"/>
+            </node>
+            <port childReference="random_numbers1.seed" description="" label="" name="seed" range="value" type="int" value="0" widget="int"/>
+            <port childReference="random_numbers1.amount" description="" label="" min="0.0" name="num_colors" range="value" type="int" value="10" widget="int"/>
+            <conn input="hsb_color1.hue" output="random_numbers1"/>
+        </node>
+        <conn input="random_percent.amount" output="number1"/>
+        <conn input="convert_range1.value" output="random_percent"/>
+        <conn input="range1.end" output="number1"/>
+        <conn input="pie.list" output="convert_range1"/>
+        <conn input="pie.degrees" output="convert_range1"/>
+        <conn input="pie.pie_size" output="range1"/>
+        <conn input="pie.fill" output="some_colors"/>
+        <conn input="some_colors.seed" output="seed"/>
+        <conn input="some_colors.num_colors" output="num_colors"/>
+    </node>
+</ndbx>
