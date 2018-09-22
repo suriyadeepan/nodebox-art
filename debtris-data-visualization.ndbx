@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="47b129c1-b105-4088-b5d5-81954c8dd2db">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine1">
+        <node name="align1" position="7.00,8.00" prototype="corevector.align">
+            <port name="position" type="point" value="12.00,0.00"/>
+            <port name="halign" type="string" value="left"/>
+            <port name="valign" type="string" value="none"/>
+        </node>
+        <node name="colorize1" position="7.00,6.00" prototype="corevector.colorize"/>
+        <node name="combine1" position="5.00,10.00" prototype="list.combine"/>
+        <node name="count1" position="1.00,-1.00" prototype="list.count"/>
+        <node name="hsb_color1" position="11.00,3.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="150.0"/>
+            <port name="saturation" type="float" value="173.0"/>
+        </node>
+        <node name="import_csv1" position="5.00,-8.00" prototype="data.import_csv">
+            <port name="file" type="string" value="data/debtris.csv"/>
+        </node>
+        <node name="lookup1" position="3.00,-6.00" prototype="data.lookup">
+            <port name="key" type="string" value="pound"/>
+        </node>
+        <node name="lookup2" position="8.00,-6.00" prototype="data.lookup">
+            <port name="key" type="string" value="description"/>
+        </node>
+        <node name="make_point1" position="1.00,2.00" prototype="corevector.make_point"/>
+        <node name="multiply1" position="1.00,1.00" prototype="math.multiply">
+            <port name="value1" type="float" value="33.0"/>
+        </node>
+        <node name="range1" position="1.00,0.00" prototype="math.range"/>
+        <node name="rect1" position="7.00,4.00" prototype="corevector.rect">
+            <port name="height" type="float" value="20.0"/>
+        </node>
+        <node name="textpath1" position="3.00,8.00" prototype="corevector.textpath">
+            <port name="align" type="string" value="RIGHT"/>
+        </node>
+        <conn input="rect1.position" output="make_point1"/>
+        <conn input="range1.end" output="count1"/>
+        <conn input="multiply1.value2" output="range1"/>
+        <conn input="make_point1.y" output="multiply1"/>
+        <conn input="colorize1.shape" output="rect1"/>
+        <conn input="colorize1.fill" output="hsb_color1"/>
+        <conn input="align1.shape" output="colorize1"/>
+        <conn input="lookup1.list" output="import_csv1"/>
+        <conn input="lookup2.list" output="import_csv1"/>
+        <conn input="count1.list" output="lookup1"/>
+        <conn input="hsb_color1.brightness" output="lookup1"/>
+        <conn input="rect1.width" output="lookup1"/>
+        <conn input="textpath1.text" output="lookup2"/>
+        <conn input="textpath1.position" output="make_point1"/>
+        <conn input="combine1.list1" output="textpath1"/>
+        <conn input="combine1.list2" output="align1"/>
+    </node>
+</ndbx>
