@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="47b129c1-b105-4088-b5d5-81954c8dd2db">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="align1">
+        <node name="align1" position="7.00,8.00" prototype="corevector.align">
+            <port name="halign" type="string" value="left"/>
+            <port name="valign" type="string" value="none"/>
+        </node>
+        <node name="colorize1" position="7.00,6.00" prototype="corevector.colorize"/>
+        <node name="count1" position="1.00,-1.00" prototype="list.count"/>
+        <node name="hsb_color1" position="11.00,3.00" prototype="color.hsb_color">
+            <port name="hue" type="float" value="150.0"/>
+            <port name="saturation" type="float" value="173.0"/>
+        </node>
+        <node name="make_point1" position="1.00,2.00" prototype="corevector.make_point"/>
+        <node name="multiply1" position="1.00,1.00" prototype="math.multiply">
+            <port name="value1" type="float" value="33.0"/>
+        </node>
+        <node name="random_numbers1" position="6.00,-3.00" prototype="math.random_numbers">
+            <port name="start" type="float" value="15.0"/>
+            <port name="end" type="float" value="200.0"/>
+            <port name="seed" type="int" value="-2"/>
+        </node>
+        <node name="range1" position="1.00,0.00" prototype="math.range"/>
+        <node name="rect1" position="7.00,4.00" prototype="corevector.rect">
+            <port name="height" type="float" value="20.0"/>
+        </node>
+        <conn input="rect1.width" output="random_numbers1"/>
+        <conn input="rect1.position" output="make_point1"/>
+        <conn input="count1.list" output="random_numbers1"/>
+        <conn input="range1.end" output="count1"/>
+        <conn input="multiply1.value2" output="range1"/>
+        <conn input="make_point1.y" output="multiply1"/>
+        <conn input="colorize1.shape" output="rect1"/>
+        <conn input="colorize1.fill" output="hsb_color1"/>
+        <conn input="hsb_color1.brightness" output="random_numbers1"/>
+        <conn input="align1.shape" output="colorize1"/>
+    </node>
+</ndbx>
