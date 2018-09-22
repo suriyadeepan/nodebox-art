@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="ed05aff1-8bfb-4aa7-b35d-0e35870a4d0d">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="translate1">
+        <node name="align1" position="17.00,9.00" prototype="corevector.align">
+            <port name="halign" type="string" value="right"/>
+        </node>
+        <node name="colorize1" position="16.00,11.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#e96c38ff"/>
+        </node>
+        <node name="colorize2" position="16.00,13.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#e96c3800"/>
+            <port name="stroke" type="color" value="#522dd061"/>
+            <port name="strokeWidth" type="float" value="1.0"/>
+        </node>
+        <node name="combine1" position="15.00,15.00" prototype="list.combine"/>
+        <node name="count1" position="10.00,3.00" prototype="list.count"/>
+        <node name="divide1" position="11.00,6.00" prototype="math.divide">
+            <port name="value1" type="float" value="360.0"/>
+        </node>
+        <node name="divide2" position="16.00,6.00" prototype="math.divide">
+            <port name="value2" type="float" value="4.0"/>
+        </node>
+        <node name="ellipse1" position="12.00,2.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="400.0"/>
+            <port name="height" type="float" value="400.0"/>
+        </node>
+        <node name="ellipse2" position="24.00,10.00" prototype="corevector.ellipse"/>
+        <node name="import_csv1" position="6.00,1.00" prototype="data.import_csv">
+            <port name="file" type="string" value="data/earthquakes.csv"/>
+        </node>
+        <node name="lookup1" position="7.00,3.00" prototype="data.lookup">
+            <port name="key" type="string" value="Region"/>
+        </node>
+        <node name="lookup2" position="16.00,4.00" prototype="data.lookup">
+            <port name="key" type="string" value="Depth"/>
+        </node>
+        <node name="lookup3" position="20.00,6.00" prototype="data.lookup">
+            <port name="key" type="string" value="Magnitude"/>
+        </node>
+        <node name="make_point1" position="20.00,13.00" prototype="corevector.make_point"/>
+        <node name="multiply1" position="10.00,9.00" prototype="math.multiply"/>
+        <node name="multiply2" position="20.00,7.00" prototype="math.multiply">
+            <port name="value2" type="float" value="4.0"/>
+        </node>
+        <node name="negate1" position="20.00,12.00" prototype="math.negate"/>
+        <node name="range1" position="10.00,7.00" prototype="math.range"/>
+        <node name="rect1" position="17.00,8.00" prototype="corevector.rect">
+            <port name="height" type="float" value="3.0"/>
+        </node>
+        <node name="resample1" position="12.00,5.00" prototype="corevector.resample">
+            <port name="method" type="string" value="amount"/>
+            <port name="points" type="int" value="50"/>
+        </node>
+        <node name="rotate1" position="14.00,17.00" prototype="corevector.rotate"/>
+        <node name="textpath1" position="7.00,5.00" prototype="corevector.textpath">
+            <port name="font_name" type="string" value="Ubuntu Mono Bold"/>
+            <port name="font_size" type="float" value="3.0"/>
+            <port name="align" type="string" value="LEFT"/>
+            <port name="position" type="point" value="3.00,0.00"/>
+        </node>
+        <node name="translate1" position="15.00,19.00" prototype="corevector.translate"/>
+        <node name="translate2" position="20.00,15.00" prototype="corevector.translate"/>
+        <conn input="lookup1.list" output="import_csv1"/>
+        <conn input="textpath1.text" output="lookup1"/>
+        <conn input="resample1.shape" output="ellipse1"/>
+        <conn input="count1.list" output="import_csv1"/>
+        <conn input="resample1.points" output="count1"/>
+        <conn input="divide1.value2" output="count1"/>
+        <conn input="range1.end" output="count1"/>
+        <conn input="multiply1.value1" output="range1"/>
+        <conn input="multiply1.value2" output="divide1"/>
+        <conn input="rotate1.angle" output="multiply1"/>
+        <conn input="translate1.shape" output="rotate1"/>
+        <conn input="translate1.translate" output="resample1"/>
+        <conn input="lookup2.list" output="import_csv1"/>
+        <conn input="rect1.width" output="divide2"/>
+        <conn input="divide2.value1" output="lookup2"/>
+        <conn input="align1.shape" output="rect1"/>
+        <conn input="combine1.list1" output="textpath1"/>
+        <conn input="rotate1.shape" output="combine1"/>
+        <conn input="lookup3.list" output="import_csv1"/>
+        <conn input="multiply2.value1" output="lookup3"/>
+        <conn input="ellipse2.width" output="multiply2"/>
+        <conn input="ellipse2.height" output="multiply2"/>
+        <conn input="negate1.value" output="divide2"/>
+        <conn input="make_point1.x" output="negate1"/>
+        <conn input="translate2.translate" output="make_point1"/>
+        <conn input="translate2.shape" output="ellipse2"/>
+        <conn input="colorize1.shape" output="align1"/>
+        <conn input="combine1.list2" output="colorize1"/>
+        <conn input="colorize2.shape" output="translate2"/>
+        <conn input="combine1.list3" output="colorize2"/>
+    </node>
+</ndbx>
