@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="743365b2-e763-4970-9bf7-09f1ba8ff719">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <device name="audio1" type="audioplayer">
+        <property name="filename" value="/home/suriya/milestones/everynoise.com/out/21st century classical.wav"/>
+        <property name="sync_with_timeline" value="true"/>
+    </device>
+    <device name="audio2" type="audioplayer">
+        <property name="filename" value="../../milestones/everynoise.com/out/anime score.wav"/>
+        <property name="sync_with_timeline" value="true"/>
+    </device>
+    <node name="root" prototype="core.network" renderedChild="stack2">
+        <node name="audio_log_avg1" position="7.00,2.00" prototype="device.audio_log_avg">
+            <port name="device_name" type="string" value="audio2"/>
+        </node>
+        <node name="multiply2" position="8.00,5.00" prototype="math.multiply">
+            <port name="value2" type="float" value="4.0"/>
+        </node>
+        <node name="rect2" position="8.00,7.00" prototype="corevector.rect">
+            <port name="width" type="float" value="3.0"/>
+        </node>
+        <node name="stack2" position="8.00,8.00" prototype="corevector.stack">
+            <port name="margin" type="float" value="-11.0"/>
+        </node>
+        <conn input="rect2.height" output="multiply2"/>
+        <conn input="stack2.shapes" output="rect2"/>
+        <conn input="multiply2.value1" output="audio_log_avg1"/>
+    </node>
+</ndbx>
