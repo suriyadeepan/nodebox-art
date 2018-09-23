@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="76de1737-90c9-4d24-9598-a76b2b04fc53">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine1">
+        <node name="OCCURRENCES" position="15.00,9.00" prototype="data.lookup">
+            <port name="key" type="string" value="Occurrences"/>
+        </node>
+        <node name="WORK" position="12.00,9.00" prototype="data.lookup">
+            <port name="key" type="string" value="Word"/>
+        </node>
+        <node name="YEAR" position="18.00,9.00" prototype="data.lookup">
+            <port name="key" type="string" value="Year"/>
+        </node>
+        <node name="combine1" position="17.00,26.00" prototype="list.combine"/>
+        <node name="count1" position="16.00,14.00" prototype="list.count"/>
+        <node name="count2" position="24.00,13.00" prototype="list.count"/>
+        <node name="distinct1" position="24.00,12.00" prototype="list.distinct"/>
+        <node name="float_to_int" position="22.00,10.00" prototype="math.integer"/>
+        <node name="float_to_int1" position="20.00,13.00" prototype="math.integer"/>
+        <node name="import_csv1" position="14.00,7.00" prototype="data.import_csv">
+            <port name="file" type="string" value="data/metallica-words.csv"/>
+        </node>
+        <node name="integer1" position="24.00,20.00" prototype="math.integer"/>
+        <node name="multiply1" position="16.00,17.00" prototype="math.multiply">
+            <port name="value2" type="float" value="6.0"/>
+        </node>
+        <node name="range1" position="16.00,16.00" prototype="math.range"/>
+        <node name="rect1" position="26.00,15.00" prototype="corevector.rect">
+            <port name="width" type="float" value="1000.0"/>
+            <port name="height" type="float" value="1000.0"/>
+        </node>
+        <node name="rotate1" position="13.00,19.00" prototype="corevector.rotate"/>
+        <node name="scatter1" position="26.00,16.00" prototype="corevector.scatter">
+            <port name="seed" type="int" value="28"/>
+        </node>
+        <node name="textpath1" position="12.00,15.00" prototype="corevector.textpath">
+            <port name="font_name" type="string" value="NanumGothicBold"/>
+            <port name="font_size" type="float" value="10.0"/>
+            <port name="align" type="string" value="LEFT"/>
+            <port name="position" type="point" value="100.00,0.00"/>
+        </node>
+        <node name="translate1" position="16.00,23.00" prototype="corevector.translate"/>
+        <node name="translate2" position="22.00,24.00" prototype="corevector.translate"/>
+        <node name="year_to_point" position="19.00,20.00" prototype="data.lookup">
+            <port name="key" type="string" value="1983"/>
+        </node>
+        <node name="years" position="23.00,22.00" prototype="corevector.textpath"/>
+        <node name="zip_map1" position="21.00,18.00" prototype="list.zip_map"/>
+        <conn input="range1.end" output="count1"/>
+        <conn input="multiply1.value1" output="range1"/>
+        <conn input="rotate1.shape" output="textpath1"/>
+        <conn input="rotate1.angle" output="multiply1"/>
+        <conn input="YEAR.list" output="import_csv1"/>
+        <conn input="OCCURRENCES.list" output="import_csv1"/>
+        <conn input="WORK.list" output="import_csv1"/>
+        <conn input="count2.list" output="distinct1"/>
+        <conn input="scatter1.shape" output="rect1"/>
+        <conn input="scatter1.amount" output="count2"/>
+        <conn input="zip_map1.keys" output="distinct1"/>
+        <conn input="float_to_int.value" output="YEAR"/>
+        <conn input="distinct1.list" output="float_to_int"/>
+        <conn input="float_to_int1.value" output="YEAR"/>
+        <conn input="zip_map1.values" output="scatter1"/>
+        <conn input="translate1.shape" output="rotate1"/>
+        <conn input="integer1.value" output="distinct1"/>
+        <conn input="translate2.translate" output="scatter1"/>
+        <conn input="year_to_point.key" output="float_to_int1"/>
+        <conn input="year_to_point.list" output="zip_map1"/>
+        <conn input="translate1.translate" output="year_to_point"/>
+        <conn input="years.text" output="integer1"/>
+        <conn input="translate2.shape" output="years"/>
+        <conn input="combine1.list1" output="translate1"/>
+        <conn input="combine1.list2" output="translate2"/>
+        <conn input="textpath1.text" output="WORK"/>
+        <conn input="count1.list" output="WORK"/>
+    </node>
+</ndbx>
