@@ -5,3 +5,7 @@ A collection of https://www.nodebox.net/[nodebox] exercises
 image:out/spiro5.png[200, 200]image:out/spiro4.png[200, 200]image:out/spiro7.png[200, 200]image:out/spiro3.png[200, 200]
 
 image:out/pattern3.png[200, 200]image:out/pattern5.png[200, 200]image:out/pattern6.png[200, 200]image:out/pattern10.png[200, 200]
+
+image:out/data-viz/slice-of-eq-bw.png[400,400]image:out/data-viz/colored-eq.png[400,400]
+
+image:out/data-viz/bw-eq.png[align="center"]
