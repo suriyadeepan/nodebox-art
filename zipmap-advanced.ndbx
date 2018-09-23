@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="76de1737-90c9-4d24-9598-a76b2b04fc53">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine1">
+        <node name="DeathMagnetic" position="24.00,18.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="Death Magnetic"/>
+            <port name="font_size" type="float" value="4.0"/>
+        </node>
+        <node name="Load" position="32.00,22.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="Load"/>
+            <port name="font_size" type="float" value="5.0"/>
+        </node>
+        <node name="OCCURRENCES" position="15.00,9.00" prototype="data.lookup">
+            <port name="key" type="string" value="Occurrences"/>
+        </node>
+        <node name="ReLoad" position="28.00,20.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="ReLoad"/>
+            <port name="font_size" type="float" value="4.0"/>
+        </node>
+        <node name="WORD" position="12.00,9.00" prototype="data.lookup">
+            <port name="key" type="string" value="Word"/>
+        </node>
+        <node name="YEAR" position="18.00,9.00" prototype="data.lookup">
+            <port name="key" type="string" value="Year"/>
+        </node>
+        <node name="and_justice_for_all" position="44.00,28.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="And Justice For All"/>
+            <port name="font_size" type="float" value="4.0"/>
+            <port name="width" type="float" value="50.0"/>
+        </node>
+        <node name="combine1" position="32.00,35.00" prototype="list.combine"/>
+        <node name="count2" position="14.00,12.00" prototype="list.count"/>
+        <node name="distinct2" position="12.00,10.00" prototype="list.distinct"/>
+        <node name="divide1" position="16.00,15.00" prototype="math.divide">
+            <port name="value1" type="float" value="360.0"/>
+            <port name="value2" type="float" value="360.0"/>
+        </node>
+        <node name="import_csv1" position="14.00,7.00" prototype="data.import_csv">
+            <port name="file" type="string" value="data/metallica-words.csv"/>
+        </node>
+        <node name="import_csv10" position="41.00,28.00" prototype="data.import_csv">
+            <port name="file" type="string" value="data/songlyrics/andjusticeforall.csv"/>
+        </node>
+        <node name="import_csv5" position="21.00,18.00" prototype="data.import_csv">
+            <port name="file" type="string" value="data/songlyrics/deathmagnetic.csv"/>
+        </node>
+        <node name="import_csv6" position="25.00,20.00" prototype="data.import_csv">
+            <port name="file" type="string" value="data/songlyrics/reload.csv"/>
+        </node>
+        <node name="import_csv7" position="29.00,22.00" prototype="data.import_csv">
+            <port name="file" type="string" value="data/songlyrics/load.csv"/>
+        </node>
+        <node name="import_csv8" position="33.00,24.00" prototype="data.import_csv">
+            <port name="file" type="string" value="data/songlyrics/masterofpuppets.csv"/>
+        </node>
+        <node name="import_csv9" position="37.00,26.00" prototype="data.import_csv">
+            <port name="file" type="string" value="data/songlyrics/killemall.csv"/>
+        </node>
+        <node name="killemall" position="40.00,26.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="Kill 'em All"/>
+            <port name="font_size" type="float" value="5.0"/>
+        </node>
+        <node name="lyric4" position="20.00,21.00" prototype="core.network" renderedChild="combine1">
+            <node name="align1" position="10.00,28.00" prototype="corevector.align"/>
+            <node name="center" position="14.00,26.00" prototype="corevector.point"/>
+            <node name="colorize1" position="16.00,31.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#00000000"/>
+                <port name="stroke" type="color" value="#8b15ef05"/>
+                <port name="strokeWidth" type="float" value="0.5"/>
+            </node>
+            <node name="colorize2" position="12.00,31.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#67230378"/>
+                <port name="stroke" type="color" value="#dc13f5ff"/>
+            </node>
+            <node name="colorize3" position="19.00,31.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#8b15efa0"/>
+                <port name="stroke" type="color" value="#8b15ef0f"/>
+            </node>
+            <node name="colorize4" position="9.00,33.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#eaeaea11"/>
+            </node>
+            <node name="combine1" position="16.00,35.00" prototype="list.combine"/>
+            <node name="combine2" position="10.00,36.00" prototype="list.combine"/>
+            <node name="cos1" position="20.00,24.00" prototype="math.cos"/>
+            <node name="ellipse1" position="19.00,29.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="1.0"/>
+                <port name="height" type="float" value="1.0"/>
+            </node>
+            <node name="ellipse2" position="9.00,32.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="35.0"/>
+                <port name="height" type="float" value="35.0"/>
+            </node>
+            <node name="hsb_color1" position="24.00,28.00" prototype="color.hsb_color">
+                <port name="hue" type="float" value="14.0"/>
+                <port name="saturation" type="float" value="248.0"/>
+                <port name="brightness" type="float" value="103.0"/>
+                <port name="alpha" type="float" value="10.0"/>
+            </node>
+            <node name="lookup1" position="16.00,20.00" prototype="data.lookup"/>
+            <node name="make_point1" position="19.00,27.00" prototype="corevector.make_point"/>
+            <node name="make_point2" position="11.00,24.00" prototype="corevector.make_point">
+                <port name="x" type="float" value="-43.0"/>
+                <port name="y" type="float" value="-34.0"/>
+            </node>
+            <node name="multiply1" position="17.00,24.00" prototype="math.multiply"/>
+            <node name="multiply2" position="20.00,25.00" prototype="math.multiply"/>
+            <node name="number1" position="19.00,22.00" prototype="math.number">
+                <port name="value" type="float" value="100.0"/>
+            </node>
+            <node name="quad_curve1" position="15.00,29.00" prototype="corevector.quad_curve">
+                <port name="distance" type="float" value="10.0"/>
+            </node>
+            <node name="sin1" position="16.00,22.00" prototype="math.sin"/>
+            <node name="words" position="17.00,16.00" prototype="data.lookup">
+                <port name="key" type="string" value="word"/>
+            </node>
+            <node name="zip_map1" position="15.00,18.00" prototype="list.zip_map"/>
+            <port childReference="zip_map1.values" description="A list of values." label="" name="values" range="list" type="list" widget="none"/>
+            <port childReference="zip_map1.keys" description="A list of keys." label="" name="keys" range="list" type="string" value="" widget="string"/>
+            <port childReference="words.list" description="The input value." label="" name="csv_input" range="value" type="list" widget="none"/>
+            <port childReference="align1.shape" description="The input shape." label="" name="title" range="value" type="geometry" widget="none"/>
+            <port childReference="make_point2.x" description="The X position of the point." label="" name="x" range="value" type="float" value="-43.0" widget="float"/>
+            <port childReference="make_point2.y" description="The Y position of the point." label="" name="y" range="value" type="float" value="-34.0" widget="float"/>
+            <conn input="lookup1.list" output="zip_map1"/>
+            <conn input="lookup1.key" output="words"/>
+            <conn input="sin1.value" output="lookup1"/>
+            <conn input="multiply1.value1" output="sin1"/>
+            <conn input="multiply1.value2" output="number1"/>
+            <conn input="make_point1.y" output="multiply1"/>
+            <conn input="cos1.value" output="lookup1"/>
+            <conn input="multiply2.value1" output="cos1"/>
+            <conn input="multiply2.value2" output="number1"/>
+            <conn input="make_point1.x" output="multiply2"/>
+            <conn input="quad_curve1.point2" output="make_point1"/>
+            <conn input="colorize1.shape" output="quad_curve1"/>
+            <conn input="colorize3.shape" output="ellipse1"/>
+            <conn input="ellipse1.position" output="make_point1"/>
+            <conn input="quad_curve1.point1" output="center"/>
+            <conn input="center.value" output="make_point2"/>
+            <conn input="align1.position" output="center"/>
+            <conn input="colorize2.shape" output="align1"/>
+            <conn input="colorize3.fill" output="hsb_color1"/>
+            <conn input="colorize1.stroke" output="hsb_color1"/>
+            <conn input="combine1.list1" output="colorize1"/>
+            <conn input="combine1.list2" output="colorize3"/>
+            <conn input="ellipse2.position" output="center"/>
+            <conn input="colorize4.shape" output="ellipse2"/>
+            <conn input="combine1.list3" output="combine2"/>
+            <conn input="combine2.list1" output="colorize4"/>
+            <conn input="combine2.list2" output="colorize2"/>
+        </node>
+        <node name="lyric5" position="24.00,23.00" prototype="core.network" renderedChild="combine1">
+            <node name="align1" position="10.00,28.00" prototype="corevector.align"/>
+            <node name="center" position="14.00,26.00" prototype="corevector.point"/>
+            <node name="colorize1" position="15.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#00000000"/>
+                <port name="stroke" type="color" value="#8b15ef05"/>
+                <port name="strokeWidth" type="float" value="0.5"/>
+            </node>
+            <node name="colorize2" position="12.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#159aef79"/>
+                <port name="stroke" type="color" value="#dc13f5ff"/>
+            </node>
+            <node name="colorize3" position="19.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#8b15efa0"/>
+                <port name="stroke" type="color" value="#8b15ef0f"/>
+            </node>
+            <node name="colorize4" position="8.00,33.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#eaeaea11"/>
+            </node>
+            <node name="combine1" position="16.00,39.00" prototype="list.combine"/>
+            <node name="combine2" position="9.00,36.00" prototype="list.combine"/>
+            <node name="cos1" position="20.00,24.00" prototype="math.cos"/>
+            <node name="ellipse1" position="19.00,29.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="1.0"/>
+                <port name="height" type="float" value="1.0"/>
+            </node>
+            <node name="ellipse2" position="8.00,32.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="35.0"/>
+                <port name="height" type="float" value="35.0"/>
+            </node>
+            <node name="hsb_color1" position="24.00,26.00" prototype="color.hsb_color">
+                <port name="hue" type="float" value="144.0"/>
+                <port name="saturation" type="float" value="233.0"/>
+                <port name="brightness" type="float" value="239.0"/>
+                <port name="alpha" type="float" value="10.0"/>
+            </node>
+            <node name="lookup1" position="16.00,20.00" prototype="data.lookup"/>
+            <node name="make_point1" position="19.00,27.00" prototype="corevector.make_point"/>
+            <node name="make_point2" position="11.00,24.00" prototype="corevector.make_point">
+                <port name="x" type="float" value="70.0"/>
+                <port name="y" type="float" value="-15.0"/>
+            </node>
+            <node name="multiply1" position="17.00,24.00" prototype="math.multiply"/>
+            <node name="multiply2" position="20.00,25.00" prototype="math.multiply"/>
+            <node name="number1" position="19.00,22.00" prototype="math.number">
+                <port name="value" type="float" value="100.0"/>
+            </node>
+            <node name="quad_curve1" position="15.00,29.00" prototype="corevector.quad_curve">
+                <port name="distance" type="float" value="10.0"/>
+            </node>
+            <node name="sin1" position="16.00,22.00" prototype="math.sin"/>
+            <node name="words" position="17.00,16.00" prototype="data.lookup">
+                <port name="key" type="string" value="word"/>
+            </node>
+            <node name="zip_map1" position="15.00,18.00" prototype="list.zip_map"/>
+            <port childReference="zip_map1.values" description="A list of values." label="" name="values" range="list" type="list" widget="none"/>
+            <port childReference="zip_map1.keys" description="A list of keys." label="" name="keys" range="list" type="string" value="" widget="string"/>
+            <port childReference="words.list" description="The input value." label="" name="csv_input" range="value" type="list" widget="none"/>
+            <port childReference="align1.shape" description="The input shape." label="" name="title" range="value" type="geometry" widget="none"/>
+            <port childReference="make_point2.x" description="The X position of the point." label="" name="x" range="value" type="float" value="70.0" widget="float"/>
+            <port childReference="make_point2.y" description="The Y position of the point." label="" name="y" range="value" type="float" value="-15.0" widget="float"/>
+            <conn input="lookup1.list" output="zip_map1"/>
+            <conn input="lookup1.key" output="words"/>
+            <conn input="sin1.value" output="lookup1"/>
+            <conn input="multiply1.value1" output="sin1"/>
+            <conn input="multiply1.value2" output="number1"/>
+            <conn input="make_point1.y" output="multiply1"/>
+            <conn input="cos1.value" output="lookup1"/>
+            <conn input="multiply2.value1" output="cos1"/>
+            <conn input="multiply2.value2" output="number1"/>
+            <conn input="make_point1.x" output="multiply2"/>
+            <conn input="quad_curve1.point2" output="make_point1"/>
+            <conn input="colorize1.shape" output="quad_curve1"/>
+            <conn input="colorize3.shape" output="ellipse1"/>
+            <conn input="ellipse1.position" output="make_point1"/>
+            <conn input="quad_curve1.point1" output="center"/>
+            <conn input="combine1.list2" output="colorize1"/>
+            <conn input="combine1.list3" output="colorize3"/>
+            <conn input="center.value" output="make_point2"/>
+            <conn input="align1.position" output="center"/>
+            <conn input="colorize2.shape" output="align1"/>
+            <conn input="colorize3.fill" output="hsb_color1"/>
+            <conn input="colorize1.stroke" output="hsb_color1"/>
+            <conn input="ellipse2.position" output="center"/>
+            <conn input="colorize4.shape" output="ellipse2"/>
+            <conn input="combine2.list1" output="colorize4"/>
+            <conn input="combine2.list2" output="colorize2"/>
+            <conn input="combine1.list1" output="combine2"/>
+        </node>
+        <node name="lyric6" position="28.00,25.00" prototype="core.network" renderedChild="combine1">
+            <node name="align1" position="10.00,28.00" prototype="corevector.align"/>
+            <node name="center" position="14.00,26.00" prototype="corevector.point"/>
+            <node name="colorize1" position="15.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#00000000"/>
+                <port name="stroke" type="color" value="#8b15ef05"/>
+                <port name="strokeWidth" type="float" value="0.5"/>
+            </node>
+            <node name="colorize2" position="12.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#efaf1579"/>
+                <port name="stroke" type="color" value="#dc13f5ff"/>
+            </node>
+            <node name="colorize3" position="19.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#8b15efa0"/>
+                <port name="stroke" type="color" value="#8b15ef0f"/>
+            </node>
+            <node name="colorize4" position="8.00,33.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#eaeaea11"/>
+            </node>
+            <node name="combine1" position="16.00,39.00" prototype="list.combine"/>
+            <node name="combine2" position="9.00,36.00" prototype="list.combine"/>
+            <node name="cos1" position="20.00,24.00" prototype="math.cos"/>
+            <node name="ellipse1" position="19.00,29.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="1.0"/>
+                <port name="height" type="float" value="1.0"/>
+            </node>
+            <node name="ellipse2" position="8.00,32.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="35.0"/>
+                <port name="height" type="float" value="35.0"/>
+            </node>
+            <node name="hsb_color1" position="24.00,26.00" prototype="color.hsb_color">
+                <port name="hue" type="float" value="30.0"/>
+                <port name="saturation" type="float" value="200.0"/>
+                <port name="brightness" type="float" value="239.0"/>
+                <port name="alpha" type="float" value="10.0"/>
+            </node>
+            <node name="lookup1" position="16.00,20.00" prototype="data.lookup"/>
+            <node name="make_point1" position="19.00,27.00" prototype="corevector.make_point"/>
+            <node name="make_point2" position="11.00,24.00" prototype="corevector.make_point">
+                <port name="x" type="float" value="32.0"/>
+                <port name="y" type="float" value="-70.0"/>
+            </node>
+            <node name="multiply1" position="17.00,24.00" prototype="math.multiply"/>
+            <node name="multiply2" position="20.00,25.00" prototype="math.multiply"/>
+            <node name="number1" position="19.00,22.00" prototype="math.number">
+                <port name="value" type="float" value="100.0"/>
+            </node>
+            <node name="quad_curve1" position="15.00,29.00" prototype="corevector.quad_curve">
+                <port name="distance" type="float" value="10.0"/>
+            </node>
+            <node name="sin1" position="16.00,22.00" prototype="math.sin"/>
+            <node name="words" position="17.00,16.00" prototype="data.lookup">
+                <port name="key" type="string" value="word"/>
+            </node>
+            <node name="zip_map1" position="15.00,18.00" prototype="list.zip_map"/>
+            <port childReference="zip_map1.values" description="A list of values." label="" name="values" range="list" type="list" widget="none"/>
+            <port childReference="zip_map1.keys" description="A list of keys." label="" name="keys" range="list" type="string" value="" widget="string"/>
+            <port childReference="words.list" description="The input value." label="" name="csv_input" range="value" type="list" widget="none"/>
+            <port childReference="align1.shape" description="The input shape." label="" name="title" range="value" type="geometry" widget="none"/>
+            <port childReference="make_point2.x" description="The X position of the point." label="" name="x" range="value" type="float" value="32.0" widget="float"/>
+            <port childReference="make_point2.y" description="The Y position of the point." label="" name="y" range="value" type="float" value="-70.0" widget="float"/>
+            <conn input="lookup1.list" output="zip_map1"/>
+            <conn input="lookup1.key" output="words"/>
+            <conn input="sin1.value" output="lookup1"/>
+            <conn input="multiply1.value1" output="sin1"/>
+            <conn input="multiply1.value2" output="number1"/>
+            <conn input="make_point1.y" output="multiply1"/>
+            <conn input="cos1.value" output="lookup1"/>
+            <conn input="multiply2.value1" output="cos1"/>
+            <conn input="multiply2.value2" output="number1"/>
+            <conn input="make_point1.x" output="multiply2"/>
+            <conn input="quad_curve1.point2" output="make_point1"/>
+            <conn input="colorize1.shape" output="quad_curve1"/>
+            <conn input="colorize3.shape" output="ellipse1"/>
+            <conn input="ellipse1.position" output="make_point1"/>
+            <conn input="quad_curve1.point1" output="center"/>
+            <conn input="combine1.list2" output="colorize1"/>
+            <conn input="combine1.list3" output="colorize3"/>
+            <conn input="center.value" output="make_point2"/>
+            <conn input="align1.position" output="center"/>
+            <conn input="colorize2.shape" output="align1"/>
+            <conn input="colorize3.fill" output="hsb_color1"/>
+            <conn input="colorize1.stroke" output="hsb_color1"/>
+            <conn input="ellipse2.position" output="center"/>
+            <conn input="colorize4.shape" output="ellipse2"/>
+            <conn input="combine2.list1" output="colorize4"/>
+            <conn input="combine2.list2" output="colorize2"/>
+            <conn input="combine1.list1" output="combine2"/>
+        </node>
+        <node name="lyric7" position="32.00,27.00" prototype="core.network" renderedChild="combine1">
+            <node name="align1" position="10.00,28.00" prototype="corevector.align"/>
+            <node name="center" position="14.00,26.00" prototype="corevector.point"/>
+            <node name="colorize1" position="15.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#00000000"/>
+                <port name="stroke" type="color" value="#8b15ef05"/>
+                <port name="strokeWidth" type="float" value="0.5"/>
+            </node>
+            <node name="colorize2" position="12.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#14173b79"/>
+                <port name="stroke" type="color" value="#dc13f5ff"/>
+            </node>
+            <node name="colorize3" position="19.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#8b15efa0"/>
+                <port name="stroke" type="color" value="#8b15ef0f"/>
+            </node>
+            <node name="colorize4" position="8.00,33.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#eaeaea11"/>
+            </node>
+            <node name="combine1" position="16.00,39.00" prototype="list.combine"/>
+            <node name="combine2" position="9.00,36.00" prototype="list.combine"/>
+            <node name="cos1" position="20.00,24.00" prototype="math.cos"/>
+            <node name="ellipse1" position="19.00,29.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="1.0"/>
+                <port name="height" type="float" value="1.0"/>
+            </node>
+            <node name="ellipse2" position="8.00,32.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="35.0"/>
+                <port name="height" type="float" value="35.0"/>
+            </node>
+            <node name="hsb_color1" position="24.00,26.00" prototype="color.hsb_color">
+                <port name="hue" type="float" value="167.0"/>
+                <port name="saturation" type="float" value="168.0"/>
+                <port name="brightness" type="float" value="59.0"/>
+                <port name="alpha" type="float" value="10.0"/>
+            </node>
+            <node name="lookup1" position="16.00,20.00" prototype="data.lookup"/>
+            <node name="make_point1" position="19.00,27.00" prototype="corevector.make_point"/>
+            <node name="make_point2" position="11.00,24.00" prototype="corevector.make_point">
+                <port name="x" type="float" value="-65.0"/>
+                <port name="y" type="float" value="30.0"/>
+            </node>
+            <node name="multiply1" position="17.00,24.00" prototype="math.multiply"/>
+            <node name="multiply2" position="20.00,25.00" prototype="math.multiply"/>
+            <node name="number1" position="19.00,22.00" prototype="math.number">
+                <port name="value" type="float" value="100.0"/>
+            </node>
+            <node name="quad_curve1" position="15.00,29.00" prototype="corevector.quad_curve">
+                <port name="distance" type="float" value="10.0"/>
+            </node>
+            <node name="sin1" position="16.00,22.00" prototype="math.sin"/>
+            <node name="words" position="17.00,16.00" prototype="data.lookup">
+                <port name="key" type="string" value="word"/>
+            </node>
+            <node name="zip_map1" position="15.00,18.00" prototype="list.zip_map"/>
+            <port childReference="zip_map1.values" description="A list of values." label="" name="values" range="list" type="list" widget="none"/>
+            <port childReference="zip_map1.keys" description="A list of keys." label="" name="keys" range="list" type="string" value="" widget="string"/>
+            <port childReference="words.list" description="The input value." label="" name="csv_input" range="value" type="list" widget="none"/>
+            <port childReference="align1.shape" description="The input shape." label="" name="title" range="value" type="geometry" widget="none"/>
+            <port childReference="make_point2.x" description="The X position of the point." label="" name="x" range="value" type="float" value="-65.0" widget="float"/>
+            <port childReference="make_point2.y" description="The Y position of the point." label="" name="y" range="value" type="float" value="30.0" widget="float"/>
+            <conn input="lookup1.list" output="zip_map1"/>
+            <conn input="lookup1.key" output="words"/>
+            <conn input="sin1.value" output="lookup1"/>
+            <conn input="multiply1.value1" output="sin1"/>
+            <conn input="multiply1.value2" output="number1"/>
+            <conn input="make_point1.y" output="multiply1"/>
+            <conn input="cos1.value" output="lookup1"/>
+            <conn input="multiply2.value1" output="cos1"/>
+            <conn input="multiply2.value2" output="number1"/>
+            <conn input="make_point1.x" output="multiply2"/>
+            <conn input="quad_curve1.point2" output="make_point1"/>
+            <conn input="colorize1.shape" output="quad_curve1"/>
+            <conn input="colorize3.shape" output="ellipse1"/>
+            <conn input="ellipse1.position" output="make_point1"/>
+            <conn input="quad_curve1.point1" output="center"/>
+            <conn input="combine1.list2" output="colorize1"/>
+            <conn input="combine1.list3" output="colorize3"/>
+            <conn input="center.value" output="make_point2"/>
+            <conn input="align1.position" output="center"/>
+            <conn input="colorize2.shape" output="align1"/>
+            <conn input="colorize3.fill" output="hsb_color1"/>
+            <conn input="colorize1.stroke" output="hsb_color1"/>
+            <conn input="ellipse2.position" output="center"/>
+            <conn input="colorize4.shape" output="ellipse2"/>
+            <conn input="combine2.list1" output="colorize4"/>
+            <conn input="combine2.list2" output="colorize2"/>
+            <conn input="combine1.list1" output="combine2"/>
+        </node>
+        <node name="lyric8" position="36.00,29.00" prototype="core.network" renderedChild="combine1">
+            <node name="align1" position="10.00,28.00" prototype="corevector.align"/>
+            <node name="center" position="14.00,26.00" prototype="corevector.point"/>
+            <node name="colorize1" position="15.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#00000000"/>
+                <port name="stroke" type="color" value="#8b15ef05"/>
+                <port name="strokeWidth" type="float" value="0.5"/>
+            </node>
+            <node name="colorize2" position="12.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#cd430eb1"/>
+                <port name="stroke" type="color" value="#dc13f5ff"/>
+            </node>
+            <node name="colorize3" position="19.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#8b15efa0"/>
+                <port name="stroke" type="color" value="#8b15ef0f"/>
+            </node>
+            <node name="colorize4" position="8.00,33.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#eaeaea11"/>
+            </node>
+            <node name="combine1" position="15.00,37.00" prototype="list.combine"/>
+            <node name="combine2" position="10.00,35.00" prototype="list.combine"/>
+            <node name="cos1" position="20.00,24.00" prototype="math.cos"/>
+            <node name="ellipse1" position="19.00,29.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="1.0"/>
+                <port name="height" type="float" value="1.0"/>
+            </node>
+            <node name="ellipse2" position="8.00,32.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="35.0"/>
+                <port name="height" type="float" value="35.0"/>
+            </node>
+            <node name="hsb_color1" position="24.00,26.00" prototype="color.hsb_color">
+                <port name="hue" type="float" value="12.0"/>
+                <port name="saturation" type="float" value="238.0"/>
+                <port name="brightness" type="float" value="205.0"/>
+                <port name="alpha" type="float" value="10.0"/>
+            </node>
+            <node name="lookup1" position="16.00,20.00" prototype="data.lookup"/>
+            <node name="make_point1" position="19.00,27.00" prototype="corevector.make_point"/>
+            <node name="make_point2" position="11.00,24.00" prototype="corevector.make_point"/>
+            <node name="multiply1" position="17.00,24.00" prototype="math.multiply"/>
+            <node name="multiply2" position="20.00,25.00" prototype="math.multiply"/>
+            <node name="number1" position="19.00,22.00" prototype="math.number">
+                <port name="value" type="float" value="100.0"/>
+            </node>
+            <node name="quad_curve1" position="15.00,29.00" prototype="corevector.quad_curve">
+                <port name="distance" type="float" value="10.0"/>
+            </node>
+            <node name="sin1" position="16.00,22.00" prototype="math.sin"/>
+            <node name="words" position="17.00,16.00" prototype="data.lookup">
+                <port name="key" type="string" value="word"/>
+            </node>
+            <node name="zip_map1" position="15.00,18.00" prototype="list.zip_map"/>
+            <port childReference="zip_map1.values" description="A list of values." label="" name="values" range="list" type="list" widget="none"/>
+            <port childReference="zip_map1.keys" description="A list of keys." label="" name="keys" range="list" type="string" value="" widget="string"/>
+            <port childReference="words.list" description="The input value." label="" name="csv_input" range="value" type="list" widget="none"/>
+            <port childReference="align1.shape" description="The input shape." label="" name="title" range="value" type="geometry" widget="none"/>
+            <port childReference="make_point2.x" description="The X position of the point." label="" name="x" range="value" type="float" value="0.0" widget="float"/>
+            <port childReference="make_point2.y" description="The Y position of the point." label="" name="y" range="value" type="float" value="0.0" widget="float"/>
+            <conn input="lookup1.list" output="zip_map1"/>
+            <conn input="lookup1.key" output="words"/>
+            <conn input="sin1.value" output="lookup1"/>
+            <conn input="multiply1.value1" output="sin1"/>
+            <conn input="multiply1.value2" output="number1"/>
+            <conn input="make_point1.y" output="multiply1"/>
+            <conn input="cos1.value" output="lookup1"/>
+            <conn input="multiply2.value1" output="cos1"/>
+            <conn input="multiply2.value2" output="number1"/>
+            <conn input="make_point1.x" output="multiply2"/>
+            <conn input="quad_curve1.point2" output="make_point1"/>
+            <conn input="colorize1.shape" output="quad_curve1"/>
+            <conn input="colorize3.shape" output="ellipse1"/>
+            <conn input="ellipse1.position" output="make_point1"/>
+            <conn input="quad_curve1.point1" output="center"/>
+            <conn input="combine1.list2" output="colorize1"/>
+            <conn input="combine1.list3" output="colorize3"/>
+            <conn input="center.value" output="make_point2"/>
+            <conn input="align1.position" output="center"/>
+            <conn input="colorize2.shape" output="align1"/>
+            <conn input="colorize3.fill" output="hsb_color1"/>
+            <conn input="colorize1.stroke" output="hsb_color1"/>
+            <conn input="ellipse2.position" output="center"/>
+            <conn input="colorize4.shape" output="ellipse2"/>
+            <conn input="combine2.list1" output="colorize4"/>
+            <conn input="combine2.list2" output="colorize2"/>
+            <conn input="combine1.list1" output="combine2"/>
+        </node>
+        <node name="lyric9" position="40.00,31.00" prototype="core.network" renderedChild="combine1">
+            <node name="align1" position="10.00,28.00" prototype="corevector.align"/>
+            <node name="center" position="14.00,26.00" prototype="corevector.point"/>
+            <node name="colorize1" position="15.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#00000000"/>
+                <port name="stroke" type="color" value="#8b15ef05"/>
+                <port name="strokeWidth" type="float" value="0.5"/>
+            </node>
+            <node name="colorize2" position="12.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#8ecd0ee0"/>
+                <port name="stroke" type="color" value="#dc13f5ff"/>
+            </node>
+            <node name="colorize3" position="19.00,30.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#8b15efa0"/>
+                <port name="stroke" type="color" value="#8b15ef0f"/>
+            </node>
+            <node name="colorize4" position="8.00,33.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#eaeaea11"/>
+            </node>
+            <node name="combine1" position="15.00,37.00" prototype="list.combine"/>
+            <node name="combine2" position="10.00,35.00" prototype="list.combine"/>
+            <node name="cos1" position="20.00,24.00" prototype="math.cos"/>
+            <node name="ellipse1" position="19.00,29.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="1.0"/>
+                <port name="height" type="float" value="1.0"/>
+            </node>
+            <node name="ellipse2" position="8.00,32.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="35.0"/>
+                <port name="height" type="float" value="35.0"/>
+            </node>
+            <node name="hsb_color1" position="24.00,26.00" prototype="color.hsb_color">
+                <port name="hue" type="float" value="57.0"/>
+                <port name="saturation" type="float" value="238.0"/>
+                <port name="brightness" type="float" value="205.0"/>
+                <port name="alpha" type="float" value="13.0"/>
+            </node>
+            <node name="lookup1" position="16.00,20.00" prototype="data.lookup"/>
+            <node name="make_point1" position="19.00,27.00" prototype="corevector.make_point"/>
+            <node name="make_point2" position="11.00,24.00" prototype="corevector.make_point">
+                <port name="x" type="float" value="11.0"/>
+                <port name="y" type="float" value="59.0"/>
+            </node>
+            <node name="multiply1" position="17.00,24.00" prototype="math.multiply"/>
+            <node name="multiply2" position="20.00,25.00" prototype="math.multiply"/>
+            <node name="number1" position="19.00,22.00" prototype="math.number">
+                <port name="value" type="float" value="100.0"/>
+            </node>
+            <node name="quad_curve1" position="15.00,29.00" prototype="corevector.quad_curve">
+                <port name="distance" type="float" value="10.0"/>
+            </node>
+            <node name="sin1" position="16.00,22.00" prototype="math.sin"/>
+            <node name="words" position="17.00,16.00" prototype="data.lookup">
+                <port name="key" type="string" value="word"/>
+            </node>
+            <node name="zip_map1" position="15.00,18.00" prototype="list.zip_map"/>
+            <port childReference="zip_map1.values" description="A list of values." label="" name="values" range="list" type="list" widget="none"/>
+            <port childReference="zip_map1.keys" description="A list of keys." label="" name="keys" range="list" type="string" value="" widget="string"/>
+            <port childReference="words.list" description="The input value." label="" name="csv_input" range="value" type="list" widget="none"/>
+            <port childReference="align1.shape" description="The input shape." label="" name="title" range="value" type="geometry" widget="none"/>
+            <port childReference="make_point2.x" description="The X position of the point." label="" name="x" range="value" type="float" value="11.0" widget="float"/>
+            <port childReference="make_point2.y" description="The Y position of the point." label="" name="y" range="value" type="float" value="59.0" widget="float"/>
+            <conn input="lookup1.list" output="zip_map1"/>
+            <conn input="lookup1.key" output="words"/>
+            <conn input="sin1.value" output="lookup1"/>
+            <conn input="multiply1.value1" output="sin1"/>
+            <conn input="multiply1.value2" output="number1"/>
+            <conn input="make_point1.y" output="multiply1"/>
+            <conn input="cos1.value" output="lookup1"/>
+            <conn input="multiply2.value1" output="cos1"/>
+            <conn input="multiply2.value2" output="number1"/>
+            <conn input="make_point1.x" output="multiply2"/>
+            <conn input="quad_curve1.point2" output="make_point1"/>
+            <conn input="colorize1.shape" output="quad_curve1"/>
+            <conn input="colorize3.shape" output="ellipse1"/>
+            <conn input="ellipse1.position" output="make_point1"/>
+            <conn input="quad_curve1.point1" output="center"/>
+            <conn input="combine1.list2" output="colorize1"/>
+            <conn input="combine1.list3" output="colorize3"/>
+            <conn input="center.value" output="make_point2"/>
+            <conn input="align1.position" output="center"/>
+            <conn input="colorize2.shape" output="align1"/>
+            <conn input="colorize3.fill" output="hsb_color1"/>
+            <conn input="colorize1.stroke" output="hsb_color1"/>
+            <conn input="ellipse2.position" output="center"/>
+            <conn input="colorize4.shape" output="ellipse2"/>
+            <conn input="combine2.list1" output="colorize4"/>
+            <conn input="combine2.list2" output="colorize2"/>
+            <conn input="combine1.list1" output="combine2"/>
+        </node>
+        <node name="master_of_puppets" position="36.00,24.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="Master of Puppets"/>
+            <port name="font_size" type="float" value="4.0"/>
+            <port name="width" type="float" value="50.0"/>
+        </node>
+        <node name="range1" position="16.00,17.00" prototype="math.range">
+            <port name="end" type="float" value="360.0"/>
+            <port name="step" type="float" value="0.1"/>
+        </node>
+        <node name="rotate1" position="13.00,21.00" prototype="corevector.rotate"/>
+        <node name="textpath1" position="12.00,15.00" prototype="corevector.textpath">
+            <port name="font_name" type="string" value="NanumGothicBold"/>
+            <port name="font_size" type="float" value="3.0"/>
+            <port name="align" type="string" value="LEFT"/>
+            <port name="position" type="point" value="102.00,0.00"/>
+        </node>
+        <conn input="rotate1.shape" output="textpath1"/>
+        <conn input="YEAR.list" output="import_csv1"/>
+        <conn input="OCCURRENCES.list" output="import_csv1"/>
+        <conn input="WORD.list" output="import_csv1"/>
+        <conn input="range1.step" output="divide1"/>
+        <conn input="rotate1.angle" output="range1"/>
+        <conn input="distinct2.list" output="WORD"/>
+        <conn input="count2.list" output="distinct2"/>
+        <conn input="divide1.value2" output="count2"/>
+        <conn input="textpath1.text" output="distinct2"/>
+        <conn input="combine1.list1" output="rotate1"/>
+        <conn input="lyric4.values" output="range1"/>
+        <conn input="lyric4.keys" output="distinct2"/>
+        <conn input="lyric4.csv_input" output="import_csv5"/>
+        <conn input="lyric5.values" output="range1"/>
+        <conn input="lyric5.keys" output="distinct2"/>
+        <conn input="lyric5.csv_input" output="import_csv6"/>
+        <conn input="combine1.list3" output="lyric5"/>
+        <conn input="combine1.list2" output="lyric4"/>
+        <conn input="lyric4.title" output="DeathMagnetic"/>
+        <conn input="lyric5.title" output="ReLoad"/>
+        <conn input="lyric6.values" output="range1"/>
+        <conn input="lyric6.keys" output="distinct2"/>
+        <conn input="lyric6.csv_input" output="import_csv7"/>
+        <conn input="lyric6.title" output="Load"/>
+        <conn input="combine1.list4" output="lyric6"/>
+        <conn input="lyric7.values" output="range1"/>
+        <conn input="lyric7.keys" output="distinct2"/>
+        <conn input="lyric7.csv_input" output="import_csv8"/>
+        <conn input="lyric7.title" output="master_of_puppets"/>
+        <conn input="combine1.list5" output="lyric7"/>
+        <conn input="lyric8.values" output="range1"/>
+        <conn input="lyric8.keys" output="distinct2"/>
+        <conn input="lyric8.csv_input" output="import_csv9"/>
+        <conn input="lyric8.title" output="killemall"/>
+        <conn input="combine1.list6" output="lyric8"/>
+        <conn input="lyric9.values" output="range1"/>
+        <conn input="lyric9.keys" output="distinct2"/>
+        <conn input="lyric9.csv_input" output="import_csv10"/>
+        <conn input="lyric9.title" output="and_justice_for_all"/>
+        <conn input="combine1.list7" output="lyric9"/>
+    </node>
+</ndbx>
